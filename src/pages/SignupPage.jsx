@@ -9,9 +9,31 @@ const SignupPage = () => {
   const [role, setRole] = useState('donor'); // Default to donor
   const navigate = useNavigate();
 
+  // Email validation
+  const isValidEmail = (email) => {
+    const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    return regex.test(email);
+  };
+
+  // Phone number validation
+  const isValidPhoneNumber = (phone) => {
+    const regex = /^\+(\d{12})$/;  // International phone number format: + followed by 12 digits
+    return regex.test(phone);
+  };
+
   const handleSignup = () => {
     if (!userName || !email || !phoneNumber || !password || !role) {
       alert('Please fill in all fields.');
+      return;
+    }
+
+    if (!isValidEmail(email)) {
+      alert('Please enter a valid email address.eg example@gmail.com');
+      return;
+    }
+
+    if (!isValidPhoneNumber(phoneNumber)) {
+      alert('Please enter a valid phone number starting with "+" and 12 digits.');
       return;
     }
 
@@ -72,6 +94,7 @@ const SignupPage = () => {
   );
 };
 
+// Styles
 const styles = {
   container: {
     display: 'flex',
@@ -113,7 +136,7 @@ const styles = {
     border: '1px solid #ddd',
   },
   button: {
-    background: 'linear-gradient(to right, black, #0072ff,black)',
+    background: 'linear-gradient(to right, black, #0072ff, black)',
     color: 'white',
     fontSize: '1.2rem',
     padding: '12px',

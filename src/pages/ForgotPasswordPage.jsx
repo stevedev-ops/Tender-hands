@@ -1,4 +1,3 @@
-// src/pages/ForgotPasswordPage.js
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -7,9 +6,32 @@ const ForgotPasswordPage = () => {
   const [contactDetails, setContactDetails] = useState('');
   const navigate = useNavigate();
 
+  // Validate email format
+  const isValidEmail = (email) => {
+    const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    return regex.test(email);
+  };
+
+  // Validate phone number format (+ followed by 12 digits)
+  const isValidPhoneNumber = (phone) => {
+    const regex = /^\+\d{12}$/;
+    return regex.test(phone);
+  };
+
   const handleSubmit = () => {
     if (!contactDetails) {
       alert('Please enter your contact details.');
+      return;
+    }
+
+    // Validate based on contact type
+    if (contact === 'email' && !isValidEmail(contactDetails)) {
+      alert('Please enter a valid email address.');
+      return;
+    }
+
+    if (contact === 'phone' && !isValidPhoneNumber(contactDetails)) {
+      alert('Please enter a valid phone number starting with "+" followed by 12 digits.');
       return;
     }
 
@@ -72,7 +94,7 @@ const styles = {
     justifyContent: 'center',
     alignItems: 'center',
     minHeight: '100vh',
-    background: 'linear-gradient(to right, black, #0072ff,black)',
+    background: 'linear-gradient(to right, black, #0072ff, black)',
   },
   formContainer: {
     backgroundColor: 'white',
@@ -112,7 +134,7 @@ const styles = {
     boxSizing: 'border-box',
   },
   button: {
-    background: 'linear-gradient(to right, black, #0072ff,black)',
+    background: 'linear-gradient(to right, black, #0072ff, black)',
     color: 'white',
     fontSize: '1.2rem',
     padding: '12px',

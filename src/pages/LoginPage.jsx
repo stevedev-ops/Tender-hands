@@ -1,4 +1,3 @@
-// src/pages/LoginPage.js
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { login } from '../redux/authSlice';
@@ -10,8 +9,12 @@ const LoginPage = () => {
   const [contact, setContact] = useState('email');
   const [password, setPassword] = useState('');
   const [role, setRole] = useState('donor');
+  const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const isValidEmail = (email) => /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email);
+  const isValidPhoneNumber = (phone) => /^\+(\d{12})$/.test(phone);
 
   const handleLogin = () => {
     if (!fullName || !userName || !password || !role) {
@@ -19,9 +22,18 @@ const LoginPage = () => {
       return;
     }
 
-    // Dispatch login action
-    dispatch(login({ user: userName, contact, role, password, fullName }));
+    if (contact === 'email' && !isValidEmail(userName)) {
+      alert('Please enter a valid email address.');
+      return;
+    }
 
+    if (contact === 'phone' && !isValidPhoneNumber(userName)) {
+      alert('Please enter a valid phone number starting with "+" and 12 digits.');
+      return;
+    }
+
+    setLoading(true); // Start loading
+    dispatch(login({ user: userName, contact, role, password, fullName }));
     alert('Login successful!');
     navigate(`/home/${role}`);
   };
@@ -30,8 +42,6 @@ const LoginPage = () => {
     <div style={styles.container}>
       <div style={styles.formContainer}>
         <h2 style={styles.heading}>Login</h2>
-
-        {/* Input fields */}
         <input
           type="text"
           placeholder="Full Name"
@@ -85,13 +95,14 @@ const LoginPage = () => {
           <option value="admin">Admin</option>
         </select>
         
-        <button onClick={handleLogin} style={styles.button}>Log In</button>
+        <button onClick={handleLogin} style={styles.button} disabled={loading}>
+          {loading ? 'Logging in...' : 'Log In'}
+        </button>
         
         <p style={styles.registerPrompt}>
           Don't have an account? <a href="/signup" style={styles.link}>Sign up</a>
         </p>
 
-        {/* Forgot Password link */}
         <p style={styles.forgotPassword}>
           <a href="/forgot-password" style={styles.link}>Forgot Password?</a>
         </p>
@@ -106,7 +117,7 @@ const styles = {
     justifyContent: 'center',
     alignItems: 'center',
     minHeight: '100vh',
-    background: 'linear-gradient(to right, black,blue,black)',
+    background: 'linear-gradient(to right, black, blue, black)',
   },
   formContainer: {
     backgroundColor: 'white',
