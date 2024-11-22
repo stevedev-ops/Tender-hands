@@ -1,8 +1,8 @@
-// src/pages/LoginPage.js
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { login } from '../redux/authSlice';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';  // Import Link from react-router-dom
 
 const LoginPage = () => {
   const [userName, setUserName] = useState('');
@@ -77,9 +77,10 @@ const LoginPage = () => {
         </select>
         
         <button onClick={handleLogin} style={styles.button}>Log In</button>
-        
+
+        {/* Link to Sign Up page */}
         <p style={styles.registerPrompt}>
-          Don't have an account? <a href="/signup" style={styles.link}>Sign up</a>
+          Don't have an account? <Link to="/signup" style={styles.link}>Sign up</Link>
         </p>
 
         {/* Forgot Password link */}
@@ -97,7 +98,7 @@ const styles = {
     justifyContent: 'center',
     alignItems: 'center',
     minHeight: '100vh',
-    background: 'cream',
+    background: '#f4f4f4',
   },
   formContainer: {
     backgroundColor: 'white',
