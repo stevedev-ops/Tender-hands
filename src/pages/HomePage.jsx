@@ -928,9 +928,10 @@ const faqQuestionStyle = {
   marginBottom: "10px",
 };
 const imageStyle = {
+  
   display: 'block',
   margin: '0 auto',  // Center the image
-  width: '80%',      // Adjust the width as needed
+  width: '100%',      // Adjust the width as needed
   borderRadius: '10px', // Optional: add rounded corners
   marginBottom: '20px', // Space between image and the description
 };
