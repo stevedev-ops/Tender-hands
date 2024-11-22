@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';  // Import Link from react-router-dom
 
 const SignupPage = () => {
   const [userName, setUserName] = useState('');
@@ -28,7 +29,7 @@ const SignupPage = () => {
     }
 
     if (!isValidEmail(email)) {
-      alert('Please enter a valid email address.eg example@gmail.com');
+      alert('Please enter a valid email address. eg example@gmail.com');
       return;
     }
 
@@ -84,9 +85,10 @@ const SignupPage = () => {
         </select>
 
         <button onClick={handleSignup} style={styles.button}>Sign Up</button>
-        
+
+        {/* Link to Login Page */}
         <p style={styles.loginPrompt}>
-          Already have an account? <a href="/login" style={styles.link}>Log in</a>
+          Already have an account? <Link to="/login" style={styles.link}>Login</Link>
         </p>
       </div>
     </div>
