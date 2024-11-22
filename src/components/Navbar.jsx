@@ -98,7 +98,7 @@ const Navbar = () => {
 const styles = {
   navbar: {
     backgroundColor: '#333',
-    padding: '10px',
+    padding: '30px',
     color: 'white',
     display: 'flex',
     justifyContent: 'space-between',

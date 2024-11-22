@@ -90,7 +90,7 @@ const styles = {
     color: '#333',
   },
   header: {
-    background: 'linear-gradient(to right, black, #0072ff,black)',
+    background: '#127bf3',
     color: '#fff',
     padding: '20px',
     borderRadius: '8px',

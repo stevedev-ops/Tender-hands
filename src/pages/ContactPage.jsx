@@ -133,11 +133,11 @@ const styles = {
     justifyContent: 'center',
     alignItems: 'center',
     height: '100vh',
-    background: 'linear-gradient(to right, black, blue, black)',
-    color: '#ffffff',
+    background: '#f4f4f4',
+  
   },
   formContainer: {
-    backgroundColor: '#f0f0f0',
+    backgroundColor: 'white',
     padding: '20px',
     borderRadius: '8px',
     marginRight: '20px',
@@ -146,16 +146,16 @@ const styles = {
   label: {
     fontSize: '18px',
     fontWeight: 'bold',
-    color: '#333333',
+    color: '#333',
     marginBottom: '8px',
     display: 'block',
     transition: 'color 0.3s ease',
   },
   input: {
     width: '100%',
-    padding: '10px',
+    padding: '0.5rem',
     margin: '10px 0',
-    border: '1px solid #ccc',
+    border: 'f1 solid #ccc',
     borderRadius: '4px',
     fontSize: '16px',
   },
@@ -169,7 +169,7 @@ const styles = {
     fontSize: '16px',
   },
   button: {
-    backgroundColor: '#000000',
+    backgroundColor: '#127bf3',
     color: '#ffffff',
     padding: '10px 20px',
     border: 'none',
@@ -182,24 +182,25 @@ const styles = {
   ctaContainer: {
     maxWidth: '300px',
     padding: '20px',
-    color: '#cccccc',
+    color: 'black',
   },
   ctaTitle: {
     fontSize: '24px',
     fontWeight: '700',
     marginBottom: '15px',
-    color: '#ffffff',
+    color: 'black',
     textTransform: 'uppercase',
   },
   socialMediaIcons: {
     display: 'flex',
     flexDirection: 'column',
     gap: '10px',
+
   },
   socialIcon: {
     display: 'flex',
     alignItems: 'center',
-    background: 'transparent',
+    background: '#1E1D1D',
     border: 'none',
     color: '#ffffff',
     fontSize: '18px',
@@ -211,6 +212,7 @@ const styles = {
     marginLeft: '10px',
     fontSize: '16px',
     fontWeight: 'bold',
+
   },
 };
 

@@ -73,6 +73,7 @@ function ExplorePage() {
       </p>
 
       <div style={{
+        
         display: 'flex',
         flexWrap: 'wrap',
         justifyContent: 'center',

@@ -81,7 +81,6 @@ const SignupPage = () => {
         <select value={role} onChange={(e) => setRole(e.target.value)} style={styles.select}>
           <option value="donor">Donor</option>
           <option value="charity">Charity</option>
-          <option value="admin">Admin</option>
         </select>
 
         <button onClick={handleSignup} style={styles.button}>Sign Up</button>
@@ -101,7 +100,7 @@ const styles = {
     justifyContent: 'center',
     alignItems: 'center',
     minHeight: '100vh',
-    background: 'linear-gradient(to right, black, blue, black)',
+    background: '#f4f4f4',
   },
   formContainer: {
     backgroundColor: 'white',
@@ -136,7 +135,7 @@ const styles = {
     border: '1px solid #ddd',
   },
   button: {
-    background: 'linear-gradient(to right, black, #0072ff, black)',
+    background: '#127BF3',
     color: 'white',
     fontSize: '1.2rem',
     padding: '12px',
